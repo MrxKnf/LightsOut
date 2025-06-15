@@ -22,7 +22,7 @@ public class Juego {
 
     }
 
-    //Metodos propios
+    //Métodos propios
 
     private void cargarConfiguraciones(){
         FileHandling.lines(ARCHIVO_CONFIG).forEach(linea ->{
@@ -123,21 +123,21 @@ public class Juego {
         if(columna == 0){
             casilla.casillaIzquierda = null;
         } else if (columna == this.tablero.getColumnas() - 1){
-            casilla.casillaDerecha = null;
-            casilla.casillaIzquierda = this.tablero.tablero[fila][columna-1];
+            casilla.setCasillaDerecha(null);
+            casilla.setCasillaIzquierda(this.tablero.tablero[fila][columna-1]);
         } else{
-            casilla.casillaIzquierda = this.tablero.tablero[fila][columna-1];
-            this.tablero.tablero[fila][columna-1].casillaDerecha = casilla;
+            casilla.setCasillaIzquierda(this.tablero.tablero[fila][columna-1]);
+            this.tablero.tablero[fila][columna-1].setCasillaDerecha(casilla);
         }
 
         if (fila == 0){
-            casilla.casillaArriba = null;
+            casilla.setCasillaArriba(null);
         } else if(fila == this.tablero.getFilas() - 1){
-            casilla.casillaAbajo = null;
-            casilla.casillaArriba = this.tablero.tablero[fila-1][columna];
+            casilla.setCasillaAbajo(null);
+            casilla.setCasillaArriba(this.tablero.tablero[fila-1][columna]);
         } else{
-            casilla.casillaArriba = this.tablero.tablero[fila-1][columna];
-            this.tablero.tablero[fila-1][columna].casillaAbajo = casilla;
+            casilla.setCasillaArriba(this.tablero.tablero[fila-1][columna]);
+            this.tablero.tablero[fila-1][columna].setCasillaAbajo(casilla);
         }
     }
 
@@ -162,7 +162,7 @@ public class Juego {
                 continue;
             }
             if (coordenadas.length != 2){
-                System.out.println("[!] Falta una coordenada.");
+                System.out.println("[!] Número de coordenadas incorrecto.");
                 continue;
             } else if(coordenadas[0] > this.tablero.getFilas() ||coordenadas[0] == 0 || coordenadas[1] > this.tablero.getColumnas() || coordenadas[1] == 0){
                 System.out.println("[!] Coordenadas fuera de los límites del tablero.");
