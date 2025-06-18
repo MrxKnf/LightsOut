@@ -46,6 +46,7 @@ public class Juego {
 
                 if(j == 0){
                     casillaActual.casillaIzquierda = null;
+                    casillaActual.casillaDerecha = this.tablero.tablero[i][j+1];
                 } else if (j == this.tablero.getColumnas() - 1){
                     casillaActual.casillaDerecha = null;
                     casillaActual.casillaIzquierda = this.tablero.tablero[i][j-1];
